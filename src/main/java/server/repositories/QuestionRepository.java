@@ -4,15 +4,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import server.models.Choice;
 import server.models.Question;
 
 import java.util.Set;
 
 @Repository
-public interface ChoiceRepository extends JpaRepository<Choice, Long> {
+public interface QuestionRepository extends JpaRepository<Question, Long> {
 
-    @Query(value = "SELECT * FROM challenges.CHOICE WHERE question_id = :question_id", nativeQuery = true)
-    Set<Choice> getChoicesByQuestionId(@Param("question_id") Long questionId);
+    @Query(value = "SELECT * FROM challenges.QUESTION WHERE challenge_type_name = :type_name", nativeQuery = true)
+    Set<Question> getQuestionsByChallengeTypeName(@Param("type_name") String typeName);
 
 }

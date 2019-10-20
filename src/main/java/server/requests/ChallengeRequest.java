@@ -15,5 +15,5 @@ public class ChallengeRequest {
 
     @NonNull String teacherLogin;
 
-    @NonNull String challengeTypeId;
+    @NonNull String challengeTypeName;
 }

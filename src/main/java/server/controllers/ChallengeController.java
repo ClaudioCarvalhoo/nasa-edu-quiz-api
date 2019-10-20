@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import server.dtos.ChallengeDto;
 import server.requests.ChallengeRequest;
+import server.responses.ChallengeResponse;
 import server.services.ChallengeService;
 
 import javax.validation.Valid;
@@ -30,7 +31,7 @@ public class ChallengeController {
 
     @GetMapping("/{code}")
     @ResponseStatus(HttpStatus.OK)
-    public ChallengeDto getChallenge(@PathVariable("code") String code){
+    public ChallengeResponse getChallenge(@PathVariable("code") String code){
         return challengeService.getChallenge(code);
     }
 }
