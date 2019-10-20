@@ -1,4 +1,4 @@
-package models;
+package server.models;
 
 import lombok.AccessLevel;
 import lombok.Data;

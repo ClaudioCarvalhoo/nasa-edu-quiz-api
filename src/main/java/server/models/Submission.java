@@ -1,4 +1,4 @@
-package models;
+package server.models;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -46,7 +46,7 @@ public class Submission {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "challenge_code")
-    String challengeCode;
+    Challenge challenge;
 
     @ManyToMany(cascade = {CascadeType.MERGE})
     @JoinTable(

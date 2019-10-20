@@ -1,4 +1,4 @@
-package models;
+package server.models;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -50,5 +50,5 @@ public class Choice {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "question_id")
-    String questionId;
+    Question question;
 }

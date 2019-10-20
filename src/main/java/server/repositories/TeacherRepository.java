@@ -1,6 +1,6 @@
-package repositories;
+package server.repositories;
 
-import models.Teacher;
+import server.models.Teacher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

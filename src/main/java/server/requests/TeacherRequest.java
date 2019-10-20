@@ -1,4 +1,4 @@
-package requests;
+package server.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

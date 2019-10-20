@@ -1,4 +1,4 @@
-package models;
+package server.models;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -25,9 +25,9 @@ public class Challenge {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "teacher_login")
-    String teacherLogin;
+    Teacher teacher;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "challenge_type_name")
-    String challengeTypeName;
+    ChallengeType challengeType;
 }

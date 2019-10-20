@@ -1,11 +1,11 @@
-package services;
+package server.services;
 
 import lombok.AllArgsConstructor;
-import models.Teacher;
+import server.models.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.TeacherRepository;
-import requests.TeacherRequest;
+import server.repositories.TeacherRepository;
+import server.requests.TeacherRequest;
 
 @Service
 @AllArgsConstructor(onConstructor = @__(@Autowired))

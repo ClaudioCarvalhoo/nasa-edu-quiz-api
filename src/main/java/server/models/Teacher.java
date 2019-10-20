@@ -1,4 +1,4 @@
-package models;
+package server.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,9 +16,7 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Teacher {
-
     @Id
     @Column(name = "login")
     String login;
-
 }
