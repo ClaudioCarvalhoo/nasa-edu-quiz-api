@@ -15,8 +15,9 @@ CREATE TABLE challenges.CHALLENGE (
   challenge_type_name TEXT NOT NULL REFERENCES challenges.CHALLENGE_TYPE(name)
 );
 
+CREATE SEQUENCE challenges.QUESTION_SEQ AS BIGINT;
 CREATE TABLE challenges.QUESTION (
-  id BIGINT PRIMARY KEY,
+  id BIGINT DEFAULT nextval('challenges.QUESTION_SEQ') PRIMARY KEY,
   text TEXT NOT NULL,
   image_url TEXT,
   help_text TEXT,
@@ -24,8 +25,9 @@ CREATE TABLE challenges.QUESTION (
   challenge_type_name TEXT NOT NULL REFERENCES challenges.CHALLENGE_TYPE(name)
 );
 
-CREATE TABLE challenges.CHOICES(
-  id BIGINT PRIMARY KEY,
+CREATE SEQUENCE challenges.CHOICE_SEQ AS BIGINT;
+CREATE TABLE challenges.CHOICE(
+  id BIGINT DEFAULT nextval('challenges.CHOICE_SEQ') PRIMARY KEY,
   text TEXT NOT NULL,
   score BIGINT NOT NULL,
   image_url TEXT,
@@ -34,8 +36,9 @@ CREATE TABLE challenges.CHOICES(
   question_id BIGINT NOT NULL REFERENCES challenges.QUESTION(id)
 );
 
+CREATE SEQUENCE challenges.SUBMISSION_SEQ AS BIGINT;
 CREATE TABLE challenges.SUBMISSION(
-  id BIGINT PRIMARY KEY,
+  id BIGINT DEFAULT nextval('challenges.SUBMISSION_SEQ') PRIMARY KEY,
   student_name TEXT NOT NULL,
   score BIGINT NOT NULL,
   challenge_code TEXT NOT NULL REFERENCES challenges.CHALLENGE(code)
@@ -43,6 +46,6 @@ CREATE TABLE challenges.SUBMISSION(
 
 CREATE TABLE challenges.SUBMISSION_CHOICE(
   submission_id BIGINT NOT NULL REFERENCES challenges.SUBMISSION(id),
-  choice_id BIGINT NOT NULL REFERENCES challenges.CHOICES(id),
+  choice_id BIGINT NOT NULL REFERENCES challenges.CHOICE(id),
   PRIMARY KEY(submission_id, choice_id)
 );
