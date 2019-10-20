@@ -1,6 +1,8 @@
 package server.services;
 
 import lombok.AllArgsConstructor;
+import server.dtos.TeacherDto;
+import server.mappers.TeacherMapper;
 import server.models.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,5 +18,10 @@ public class TeacherService {
         Teacher teacher = new Teacher();
         teacher.setLogin(request.getLogin());
         teacherRepository.save(teacher);
+    }
+
+    public TeacherDto getTeacher(String login){
+        Teacher teacher = teacherRepository.getOne(login);
+        return TeacherMapper.teacherToDto(teacher);
     }
 }
